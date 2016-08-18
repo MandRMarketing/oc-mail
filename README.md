@@ -6,7 +6,7 @@
 
 ## Installation
 
-~~In order to install this plugin, please follow the steps below:
+In order to install this plugin, please follow the steps below:
 
 1. Manually install it. Clone it copy it, whatever.
 
