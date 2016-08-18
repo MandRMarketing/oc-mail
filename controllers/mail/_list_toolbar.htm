@@ -3,7 +3,6 @@
         <div class="scoreboard-item control-chart" data-control="chart-pie">
             <ul>
                 <li data-color="#95b753"><?= e(trans('mandr.mail::lang.controllers.mail.stats_sent')) ?> <span><?= $sent ?></span></li>
-                <li data-color="#e5a91a"><?= e(trans('mandr.mail::lang.controllers.mail.stats_bounced')) ?> <span><?= $bounced ?></span></li>
             </ul>
         </div>
 
@@ -17,12 +16,7 @@
 
         <div class="scoreboard-item title-value">
             <h4><?= e(trans('mandr.mail::lang.controllers.mail.stats_total_sent')) ?></h4>
-            <p><?= $sent+$bounced ?></p>
-        </div>
-
-        <div class="scoreboard-item title-value">
-            <h4><?= e(trans('mandr.mail::lang.controllers.mail.stats_total_opens')) ?></h4>
-            <p><?= $opens ?></p>
+            <p><?= $sent ?></p>
         </div>
     </div>
 </div>
