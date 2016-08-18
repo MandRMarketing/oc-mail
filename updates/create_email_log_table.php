@@ -12,12 +12,12 @@ class CreateEmailLogTable extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('code');
+            $table->string('code')->nullable();
             $table->text('to');
             $table->text('cc')->nullable();
             $table->text('bcc')->nullable();
             $table->string('subject')->nullable();
-            $table->text('body');
+            $table->text('body')->nullable();
             $table->string('sender')->nullable();
             $table->string('reply_to')->nullable();
             $table->string('date')->nullable();

@@ -58,27 +58,6 @@ class Email extends Model
         $this->hash = md5(time().'some-salt'.rand(1, 10000));
     }
 
-    public function logEmailOpened()
-    {
-        $this->opens()->create([]);
-    }
-
-    public function getTimesOpenedAttribute()
-    {
-        return (int) $this->opens()->count();
-    }
-
-    public function getLastOpenedAttribute()
-    {
-        $open =  $this->opens->last();
-
-        if (!$open) {
-            return null;
-        }
-
-        return Carbon::parse($open->created_at)->diffForHumans();
-    }
-
     public function getToEmailAttribute()
     {
         $emails = array_keys($this->to);

@@ -44,36 +44,6 @@ class Template extends Controller
         $this->asExtension('FormController')->preview($recordId, 'stats');
 
         $template = MailTemplate::findOrFail($recordId);
-        $this->vars['lastWeek'] = $this->getOpensLastWeek($template);
         $this->vars['lastTs'] = end($this->vars['lastWeek'])->ts;
-    }
-
-    protected function getOpensLastWeek(MailTemplate $template)
-    {
-        $return = [];
-        $emailOpens = new EmailOpens;
-
-        $opens = $template->opens()
-            ->where($emailOpens->table . '.created_at', '>=', Carbon::now()->subWeek())
-            ->orderBy('created_at', 'asc')
-            ->get();
-
-        // Set placeholder data
-        for ($i = 0; $i < 7; $i++) {
-            $date = Carbon::createFromTime(null, 0, 0)->subDays($i);
-
-            $return[$date->day] = (object) [
-                'ts' => $date,
-                'count' => 0
-            ];
-        }
-
-        // Set actual data
-        foreach ($opens as $open) {
-            $date = $open->created_at;
-            $return[$date->day]->count += 1;
-        }
-
-        return $return;
     }
 }
