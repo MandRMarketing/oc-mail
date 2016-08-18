@@ -6,18 +6,20 @@
 
 ## Installation
 
-In order to install this plugin, please follow the steps below:
+~~In order to install this plugin, please follow the steps below:
 
-1. Open up the OctoberCMS backend (administration panel; http://localhost:8000/backend);
-2. Go to `Settings` and then `Updates` in the left side panel;
-3. Click `Install plugins` and search for `Mja.Mail`;
-4. Once You have found the plugin, simply click on it and it will be installed.
+1. Manually install it. Clone it copy it, whatever.
+
+~~1. Open up the OctoberCMS backend (administration panel; http://localhost:8000/backend);~~
+~~2. Go to `Settings` and then `Updates` in the left side panel;~~
+~~3. Click `Install plugins` and search for `Mja.Mail`;~~
+~~4. Once You have found the plugin, simply click on it and it will be installed.~~
 
 ## Info
 
 As soon as Mja.Mail plugin is installed it will be set up and start tracking the outgoing mails. It does so by using Laravel's events. As soon as email is beginning to go out it simply logs the data in database.
 
-An important thing to understand is that this plugin will append a transparent 1x1 PNG image to all of the outgoing email. This image is used to track email opens.
+~~An important thing to understand is that this plugin will append a transparent 1x1 PNG image to all of the outgoing email. This image is used to track email opens.~~
 
 Detailed statistics are available right out of the box.
 
