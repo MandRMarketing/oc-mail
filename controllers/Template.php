@@ -1,10 +1,10 @@
-<?php namespace Mja\Mail\Controllers;
+<?php namespace Mandr\Mail\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Mja\Mail\Models\EmailOpens;
+use Mandr\Mail\Models\EmailOpens;
 use System\Models\MailTemplate;
 
 /**
@@ -22,7 +22,7 @@ class Template extends Controller
     public $listConfig = 'config_list.yaml';
     public $relationConfig = 'config_relation.yaml';
 
-    public $requiredPermissions = ['mja.mail.template'];
+    public $requiredPermissions = ['mandr.mail.template'];
 
     /**
      * Ensure that by default our menu sidebar is active
@@ -30,7 +30,7 @@ class Template extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('Mja.Mail', 'mail', 'template');
+        BackendMenu::setContext('Mandr.Mail', 'mail', 'template');
     }
 
     public function index()

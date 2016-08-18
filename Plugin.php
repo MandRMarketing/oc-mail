@@ -1,10 +1,10 @@
-<?php namespace Mja\Mail;
+<?php namespace Mandr\Mail;
 
 use Backend;
 use Event;
 use Mail;
-use Mja\Mail\Models\Email;
-use Mja\Mail\Controllers\Mail as MailController;
+use Mandr\Mail\Models\Email;
+use Mandr\Mail\Controllers\Mail as MailController;
 use System\Classes\PluginBase;
 use System\Models\MailTemplate;
 
@@ -21,8 +21,8 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'mja.mail::lang.plugin_name',
-            'description' => 'mja.mail::lang.plugin_description',
+            'name'        => 'mandr.mail::lang.plugin_name',
+            'description' => 'mandr.mail::lang.plugin_description',
             'author'      => 'Matiss Janis Aboltins, Will Hawthorne @ M&R Marketing Group',
             'homepage'    => 'http://mja.lv/',
             'icon'        => 'icon-envelope'
@@ -33,24 +33,24 @@ class Plugin extends PluginBase
     {
         return [
             'mail' => [
-                'label'       => 'mja.mail::lang.controllers.mail.title',
-                'url'         => Backend::url('mja/mail/mail'),
+                'label'       => 'mandr.mail::lang.controllers.mail.title',
+                'url'         => Backend::url('mandr/mail/mail'),
                 'icon'        => 'icon-paper-plane-o',
-                'permissions' => ['mja.mail.*'],
+                'permissions' => ['mandr.mail.*'],
                 'order'       => 500,
 
                 'sideMenu' => [
                     'template' => [
-                        'label'       => 'mja.mail::lang.controllers.template.title',
+                        'label'       => 'mandr.mail::lang.controllers.template.title',
                         'icon'        => 'icon-database',
-                        'url'         => Backend::url('mja/mail/template'),
-                        'permissions' => ['mja.mail.template']
+                        'url'         => Backend::url('mandr/mail/template'),
+                        'permissions' => ['mandr.mail.template']
                     ],
                     'mail' => [
-                        'label'       => 'mja.mail::lang.controllers.mail.mails_sent',
+                        'label'       => 'mandr.mail::lang.controllers.mail.mails_sent',
                         'icon'        => 'icon-paper-plane',
-                        'url'         => Backend::url('mja/mail/mail'),
-                        'permissions' => ['mja.mail.mail']
+                        'url'         => Backend::url('mandr/mail/mail'),
+                        'permissions' => ['mandr.mail.mail']
                     ]
                 ]
             ]
@@ -60,8 +60,8 @@ class Plugin extends PluginBase
     public function registerFormWidgets()
     {
         return [
-            'Mja\Mail\FormWidgets\EmailGrid' => [
-                'label' => 'mja.mail::lang.formwidget.title',
+            'Mandr\Mail\FormWidgets\EmailGrid' => [
+                'label' => 'mandr.mail::lang.formwidget.title',
                 'code'  => 'emailgrid'
             ]
         ];
@@ -70,8 +70,8 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'mja.mail.template' => ['tab' => 'mja.mail::lang.controllers.mail.title', 'label' => 'mja.mail::lang.permission.template'],
-            'mja.mail.mail'     => ['tab' => 'mja.mail::lang.controllers.mail.title', 'label' => 'mja.mail::lang.permission.mail']
+            'mandr.mail.template' => ['tab' => 'mandr.mail::lang.controllers.mail.title', 'label' => 'mandr.mail::lang.permission.template'],
+            'mandr.mail.mail'     => ['tab' => 'mandr.mail::lang.controllers.mail.title', 'label' => 'mandr.mail::lang.permission.mail']
        ];
     }
 
@@ -133,7 +133,7 @@ class Plugin extends PluginBase
 
             // Email relation
             $model->addDynamicMethod('emails', function() use ($model) {
-                return $model->hasMany('Mja\Mail\Models\Email', 'code', 'code');
+                return $model->hasMany('Mandr\Mail\Models\Email', 'code', 'code');
             });
 
             // Emails sent

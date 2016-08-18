@@ -1,4 +1,4 @@
-<?php namespace Mja\Mail\Models;
+<?php namespace Mandr\Mail\Models;
 
 use Carbon\Carbon;
 use Hash;
@@ -12,7 +12,7 @@ class Email extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'mja_mail_email_log';
+    public $table = 'mandr_mail_email_log';
 
     /**
      * @var array Guarded fields
@@ -43,7 +43,7 @@ class Email extends Model
      */
     public $hasOne = [];
     public $hasMany = [
-        'opens' => 'Mja\Mail\Models\EmailOpens',
+        'opens' => 'Mandr\Mail\Models\EmailOpens',
     ];
     public $belongsTo = [];
     public $belongsToMany = [];

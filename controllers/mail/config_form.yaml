@@ -2,10 +2,10 @@
 #  Form Behavior Config
 # ===================================
 
-name: mja.mail::lang.controllers.mail.title
-form: $/mja/mail/models/email/fields.yaml
-modelClass: Mja\Mail\Models\Email
-defaultRedirect: mja/mail/mail
+name: mandr.mail::lang.controllers.mail.title
+form: $/mandr/mail/models/email/fields.yaml
+modelClass: Mandr\Mail\Models\Email
+defaultRedirect: mandr/mail/mail
 
 preview:
-    title: mja.mail::lang.controllers.mail.preview
+    title: mandr.mail::lang.controllers.mail.preview

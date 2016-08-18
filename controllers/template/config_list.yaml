@@ -2,10 +2,10 @@
 #  List Behavior Config
 # ===================================
 
-title: mja.mail::lang.controllers.template.title
-list: $/mja/mail/models/template/columns.yaml
+title: mandr.mail::lang.controllers.template.title
+list: $/mandr/mail/models/template/columns.yaml
 modelClass: System\Models\MailTemplate
-recordUrl: mja/mail/template/stats/:id
+recordUrl: mandr/mail/template/stats/:id
 
 recordsPerPage: 20
 noRecordsMessage: backend::lang.list.no_records

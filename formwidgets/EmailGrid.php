@@ -1,4 +1,4 @@
-<?php namespace Mja\Mail\FormWidgets;
+<?php namespace Mandr\Mail\FormWidgets;
 
 use Backend\Classes\FormField;
 use Backend\Classes\FormWidgetBase;
@@ -9,8 +9,8 @@ class EmailGrid extends FormWidgetBase
     public function widgetDetails()
     {
         return [
-            'name'        => 'mja.mail::lang.formwidget.title',
-            'description' => 'mja.mail::lang.formwidget.description'
+            'name'        => 'mandr.mail::lang.formwidget.title',
+            'description' => 'mandr.mail::lang.formwidget.description'
         ];
     }
 

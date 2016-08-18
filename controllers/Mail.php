@@ -1,9 +1,9 @@
-<?php namespace Mja\Mail\Controllers;
+<?php namespace Mandr\Mail\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use Mja\Mail\Models\Email;
-use Mja\Mail\Models\EmailOpens;
+use Mandr\Mail\Models\Email;
+use Mandr\Mail\Models\EmailOpens;
 
 /**
  * Back-end Controller
@@ -22,7 +22,7 @@ class Mail extends Controller
     public $listConfig = 'config_list.yaml';
     public $relationConfig = 'config_relation.yaml';
 
-    public $requiredPermissions = ['mja.mail.mail'];
+    public $requiredPermissions = ['mandr.mail.mail'];
 
     public $bodyClass = 'compact-container';
 
@@ -32,7 +32,7 @@ class Mail extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('Mja.Mail', 'mail', 'mail');
+        BackendMenu::setContext('Mandr.Mail', 'mail', 'mail');
     }
 
     public function index()

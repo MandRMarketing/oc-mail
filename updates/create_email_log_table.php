@@ -1,4 +1,4 @@
-<?php namespace Mja\Mail\Updates;
+<?php namespace Mandr\Mail\Updates;
 
 use Schema;
 use October\Rain\Database\Updates\Migration;
@@ -8,7 +8,7 @@ class CreateEmailLogTable extends Migration
 
     public function up()
     {
-        Schema::create('mja_mail_email_log', function($table)
+        Schema::create('mandr_mail_email_log', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -30,7 +30,7 @@ class CreateEmailLogTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('mja_mail_email_log');
+        Schema::dropIfExists('mandr_mail_email_log');
     }
 
 }
