@@ -21,19 +21,6 @@
                         <h4><?= e(trans('mandr.mail::lang.models.email.sent')) ?></h4>
                         <p class="<?= $formModel->sent ? 'positive' : 'negative' ?>"><?= $formModel->sent ? e(trans('mandr.mail::lang.models.email.yes')) : e(trans('mandr.mail::lang.models.email.no')) ?></p>
                     </div>
-                    <div class="scoreboard-item title-value">
-                        <h4><?= e(trans('mandr.mail::lang.models.email.times_opened')) ?></h4>
-                        <p><?= $formModel->times_opened ?></p>
-                        <p class="description"><?= e(trans('mandr.mail::lang.models.email.times_opened_desc')) ?></p>
-                    </div>
-
-                    <?php if (count($formModel->opens) > 0): ?>
-                        <div class="scoreboard-item title-value">
-                            <h4><?= e(trans('mandr.mail::lang.models.email.last_opened')) ?></h4>
-                            <p><?= $formModel->last_opened ?></p>
-                            <p class="description"><?= $formModel->opens->last()->created_at ?></p>
-                        </div>
-                    <?php endif ?>
                 </div>
             </div>
 

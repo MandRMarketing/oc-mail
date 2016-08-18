@@ -4,7 +4,6 @@ use BackendMenu;
 use Backend\Classes\Controller;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Mandr\Mail\Models\EmailOpens;
 use System\Models\MailTemplate;
 
 /**
@@ -14,13 +13,11 @@ class Template extends Controller
 {
     public $implement = [
         'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController',
-        'Backend.Behaviors.RelationController'
+        'Backend.Behaviors.ListController'
     ];
 
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
-    public $relationConfig = 'config_relation.yaml';
 
     public $requiredPermissions = ['mandr.mail.template'];
 

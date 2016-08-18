@@ -3,7 +3,6 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 use Mandr\Mail\Models\Email;
-use Mandr\Mail\Models\EmailOpens;
 
 /**
  * Back-end Controller
@@ -14,13 +13,11 @@ class Mail extends Controller
 
     public $implement = [
         'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController',
-        'Backend.Behaviors.RelationController',
+        'Backend.Behaviors.ListController'
     ];
 
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
-    public $relationConfig = 'config_relation.yaml';
 
     public $requiredPermissions = ['mandr.mail.mail'];
 
@@ -37,7 +34,6 @@ class Mail extends Controller
 
     public function index()
     {
-        $this->vars['opens'] = EmailOpens::count();
         $this->vars['sent'] = Email::whereSent(true)->count();
         $this->vars['emails'] = Email::select('code')->groupBy('code')->get();
 

@@ -36,11 +36,6 @@ tabs:
             tab: mandr.mail::lang.models.email.tab_emails
             type: emailgrid
 
-        response@preview:
-            label: mandr.mail::lang.models.email.response
-            tab: mandr.mail::lang.models.email.tab_response
-            type: richeditor
-
 secondaryTabs:
     fields:
 
