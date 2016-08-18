@@ -23,7 +23,7 @@ class Plugin extends PluginBase
         return [
             'name'        => 'mja.mail::lang.plugin_name',
             'description' => 'mja.mail::lang.plugin_description',
-            'author'      => 'Matiss Janis Aboltins',
+            'author'      => 'Matiss Janis Aboltins, Will Hawthorne @ M&R Marketing Group',
             'homepage'    => 'http://mja.lv/',
             'icon'        => 'icon-envelope'
         ];
@@ -96,13 +96,6 @@ class Plugin extends PluginBase
                 'reply_to' => $swift->getReplyTo(),
                 'date' => $swift->getDate()
             ]);
-
-            $url = Backend::url('mja/mail/image/image', [
-                'id'   => $mail->id,
-                'hash' => $mail->hash . '.png'
-            ]);
-
-            $swift->setBody($swift->getBody() . '<img src="'. $url .'" style="display:none;width:0;height:0;" />');
         });
 
         // After send: log the result
@@ -148,38 +141,12 @@ class Plugin extends PluginBase
                 return (int) $model->emails()->count();
             });
 
-            // Email opens
-            $model->addDynamicMethod('getTimesOpenedAttribute', function() use ($model) {
-                return (int) $model->opens()->count();
-            });
-
             // Last time sent
             $model->addDynamicMethod('getLastSentAttribute', function() use ($model) {
                 $email = $model->emails()->orderBy('id', 'desc')->first();
                 return $email ? $email->created_at : null;
             });
 
-            // Last time opened
-            $model->addDynamicMethod('getLastOpenAttribute', function() use ($model) {
-                $emails = $model->emails()->get();
-                $last_open = null;
-
-                foreach ($emails as $email) {
-                    $lo = $email->opens()->orderBy('id', 'desc')->first();
-                    if ($lo && ($lo->created_at < $last_open || $last_open === null))
-                        $last_open = $lo->created_at;
-                }
-
-                return $last_open;
-            });
-
-            // Get the email opens by template
-            $model->addDynamicMethod('opens', function() use ($model) {
-                $model->setKeyName('code');
-                $data = $model->hasManyThrough('Mja\Mail\Models\EmailOpens', 'Mja\Mail\Models\Email', 'code', 'email_id');
-                $model->setKeyName('id');
-                return $data;
-            });
         });
     }
 }
