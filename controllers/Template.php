@@ -41,6 +41,8 @@ class Template extends Controller
         $this->asExtension('FormController')->preview($recordId, 'stats');
 
         $template = MailTemplate::findOrFail($recordId);
-        $this->vars['lastTs'] = end($this->vars['lastWeek'])->ts;
+		if( isset($this->vars['lastWeek']) ) {
+			$this->vars['lastTs'] = end($this->vars['lastWeek'])->ts;
+		}
     }
 }

@@ -38,21 +38,6 @@ class Plugin extends PluginBase
                 'icon'        => 'icon-paper-plane-o',
                 'permissions' => ['mandr.mail.*'],
                 'order'       => 500,
-
-                'sideMenu' => [
-                    'template' => [
-                        'label'       => 'mandr.mail::lang.controllers.template.title',
-                        'icon'        => 'icon-database',
-                        'url'         => Backend::url('mandr/mail/template'),
-                        'permissions' => ['mandr.mail.template']
-                    ],
-                    'mail' => [
-                        'label'       => 'mandr.mail::lang.controllers.mail.mails_sent',
-                        'icon'        => 'icon-paper-plane',
-                        'url'         => Backend::url('mandr/mail/mail'),
-                        'permissions' => ['mandr.mail.mail']
-                    ]
-                ]
             ]
         ];
     }
